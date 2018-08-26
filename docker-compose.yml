@@ -8,18 +8,19 @@ services:
       - "3307:3306"
     volumes:
       - talententdecker_db:/var/lib/mysql
-  app:
+  rails5:
     build:
-      context: jekyll
+      context: rails5
       dockerfile: Dockerfile.dev
     environment:
       RAILS_PORT: 3000
+      RAILS_DB_HOST: 'mysql'
     ports:
       - "3000:3000"
     volumes:
-      - gems_app:/bundle # persist gems as a volume
-      - ./jekyll:/app
+      - talententdecker_gems:/usr/local/bundle # persist gems as a volume
+      - ./rails5:/app
       - ../talententdecker/docker-entrypoint-dev.sh:/usr/local/bin/docker-entrypoint-dev.sh
 volumes:
-  gems_app:
+  talententdecker_gems:
   talententdecker_db:
