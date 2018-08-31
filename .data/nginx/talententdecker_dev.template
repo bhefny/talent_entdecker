@@ -1,12 +1,15 @@
 server {
+    listen      $NGINX_PORT;
+    server_name www.talententdecker1.com;
+    return 500;
+}
+server {
     listen       $NGINX_PORT;
     server_name  $NGINX_HOST;
 
     # Tell Nginx and Passenger where your app's 'public' directory is
     # root /var/www/APPNAME/current/public;
     # index index.html index.htm;
-
-    # Static assets are served from the mentioned root directory
     location / {
         #  root /var/www/APPNAME/current;
         #  index index.html index.htm;
@@ -21,6 +24,18 @@ server {
         # proxy_set_header X-Real-Scheme $scheme;
         # proxy_set_header X-Real-Port $server_port;
     }
+
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /500.html;
+    location ~ "^/(404|500).html" {
+        internal;
+        root /rails_public;
+    }
+
+    location ~ "^/(assets|packs)" {
+        root /rails_public;
+    }
+    # Static assets are served from the mentioned root directory
 
     # Turn on Passenger
     # passenger_enabled on;
