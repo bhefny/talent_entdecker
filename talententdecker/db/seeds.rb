@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+GlobalSetting.delete_all
+GlobalSetting.create(key: 'year_footer', value: Date.today.year)

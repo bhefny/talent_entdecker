@@ -1,0 +1,43 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    ports:
+      - "3307:3306"
+    volumes:
+      - talententdecker_db:/var/lib/mysql
+  talententdecker:
+    build:
+      context: talententdecker
+      dockerfile: Dockerfile.dev
+    environment:
+      RAILS_PORT: 3000
+      RAILS_DB_HOST: 'mysql'
+      RAILS_DB_USER: 'root'
+      RAILS_DB_PASSWORD: ''
+      RAILS_ENV: 'production'
+      RUN_BIN_SETUP: 1
+    ports:
+      - "3000:3000"
+    volumes:
+      - talententdecker_gems:/usr/local/bundle # persist gems as a volume
+      - ./talententdecker:/app
+      - ../talententdecker/docker-entrypoint-prd.sh:/usr/local/bin/docker-entrypoint-prd.sh
+  nginx:
+    image: nginx
+    ports:
+     - "80:80"
+    environment:
+     - NGINX_HOST=talententdecker.com
+     - NGINX_PORT=80
+     - NGINX_PROXY=http://talententdecker:3000
+    volumes:
+      - .data/nginx/talententdecker_prd.template:/etc/nginx/conf.d/talententdecker.template
+      - ./talententdecker/public:/rails_public
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/talententdecker.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+
+volumes:
+  talententdecker_gems:
+  talententdecker_db:

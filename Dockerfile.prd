@@ -1,0 +1,30 @@
+# Build a development docker image
+FROM ruby:2.5.1-stretch
+
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq \
+    && apt-get install -y --no-install-recommends build-essential nodejs yarn \
+    && apt-get clean
+
+# no need to copy files now as docker-compose will handle the mounting
+ENV APPDIR=/app \
+    TERM=xterm
+
+WORKDIR $APPDIR
+
+COPY package.json $APPDIR/
+COPY yarn.lock $APPDIR/
+RUN yarn install
+
+COPY Gemfile* $APPDIR/
+RUN bundle install --deployment --without="development test"
+
+COPY . $APPDIR
+
+RUN bundle exec rake assets:precompile RAILS_ENV=production
+
+VOLUME $APPDIR/public
+
+ENTRYPOINT ["docker-entrypoint-prd.sh"]
