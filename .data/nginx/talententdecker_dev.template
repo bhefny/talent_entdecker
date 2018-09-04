@@ -1,7 +1,7 @@
 server {
     listen      $NGINX_PORT;
-    server_name www.talententdecker1.com;
-    return 301 http://talententdecker1.com$request_uri;
+    server_name www.talententdecker.com;
+    return 301 http://talententdecker.com$request_uri;
 }
 server {
     listen       $NGINX_PORT;

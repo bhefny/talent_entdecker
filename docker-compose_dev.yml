@@ -30,7 +30,7 @@ services:
     ports:
      - "80:80"
     environment:
-     - NGINX_HOST=talententdecker1.com
+     - NGINX_HOST=talententdecker.com
      - NGINX_PORT=80
      - NGINX_PROXY=http://talententdecker:3000
     volumes:
