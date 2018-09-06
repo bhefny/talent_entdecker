@@ -24,7 +24,7 @@ services:
     volumes:
       - talententdecker_gems:/usr/local/bundle # persist gems as a volume
       - ./talententdecker:/app
-      - ./talententdecker/docker-entrypoint-dev.sh:/usr/local/bin/docker-entrypoint-dev.sh
+      - ./docker-entrypoint-dev.sh:/usr/local/bin/docker-entrypoint-dev.sh
   nginx:
     image: nginx
     ports:
