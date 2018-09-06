@@ -33,8 +33,9 @@ en:
   company_name: "Talent Entdecker(&#127813;);"
   static:
     index:
-      abc: 'FFFFFFFFFFFF'
-    header:
-      welcome_small: Welcome To Our Studio!
-      welcome_large: It's Nice To Meet You
-      welcome_button: Tell Me More
+      header:
+        welcome_small: Welcome To Our Studio!
+        welcome_large: It's Nice To Meet You
+        welcome_button: Tell Me More
+      services:
+        title: Services
