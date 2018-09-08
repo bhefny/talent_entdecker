@@ -34,8 +34,19 @@ en:
   static:
     index:
       header:
-        welcome_small: Welcome To Our Studio!
-        welcome_large: It's Nice To Meet You
+        welcome_small: Do you need skilled Developers?
+        welcome_large: We find/test/sort them for you!
         welcome_button: Tell Me More
       services:
         title: Services
+        subtitle: We offer very selective set of services
+        service_1_title: Applicants Scoring
+        service_1_text: We have developed a detailed testing process (English, IQ and Programming) to evaluate potential candiates and give them a wiegted score
+        service_2_title: Hire on the fly
+        service_2_text: We are constantly interviewing and testing developers to have a sorted list for you
+        service_3_title: Recruitment consultancy
+        service_3_text: Want to hire the best team but dont want hassle of the entire hiring process. We can take be your hiring consultants
+      portfolio:
+        title: Technologies
+        subtitle: We are specialized in selective set of Web Technologies
+
