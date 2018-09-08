@@ -23,8 +23,9 @@ services:
       - "3000:3000"
     volumes:
       - talententdecker_gems:/usr/local/bundle # persist gems as a volume
-      - ./talententdecker:/app
+      - shared_assets:$APPDIR/public
       - ./docker-entrypoint-prd.sh:/usr/local/bin/docker-entrypoint-prd.sh
+
   nginx:
     image: nginx
     ports:
@@ -35,9 +36,10 @@ services:
      - NGINX_PROXY=http://talententdecker:3000
     volumes:
       - .data/nginx/talententdecker_prd.template:/etc/nginx/conf.d/talententdecker.template
-      - ./talententdecker/public:/rails_public
+      - shared_assets:/rails_public
     command: /bin/bash -c "envsubst < /etc/nginx/conf.d/talententdecker.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
 
 volumes:
   talententdecker_gems:
   talententdecker_db:
+  shared_assets:
