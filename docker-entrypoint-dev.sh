@@ -13,7 +13,7 @@ yarn install
 
 if ! [ -z "$RUN_BIN_SETUP" ]; then
   echo "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ rebuilding databases STARTED ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"
-  rails db:drop db:crete db:migrate db:seed
+  rails db:drop db:create db:migrate db:seed
   echo "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ rebuilding databases COMPLETED ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"
 fi
 rails s -p ${RAILS_PORT} -b 0.0.0.0
