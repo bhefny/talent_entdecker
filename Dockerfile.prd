@@ -25,6 +25,4 @@ COPY . $APPDIR
 
 RUN bundle exec rake assets:precompile RAILS_ENV=production
 
-VOLUME $APPDIR/public
-
 ENTRYPOINT ["docker-entrypoint-prd.sh"]
