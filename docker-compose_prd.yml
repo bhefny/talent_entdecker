@@ -18,11 +18,10 @@ services:
       RAILS_DB_USER: 'root'
       RAILS_DB_PASSWORD: ''
       RAILS_ENV: 'production'
-      RUN_BIN_SETUP: 1
+      # RUN_BIN_SETUP: 1
     ports:
       - "3000:3000"
     volumes:
-      - talententdecker_gems:/usr/local/bundle # persist gems as a volume
       - shared_assets:/app/public
       - ./docker-entrypoint-prd.sh:/usr/local/bin/docker-entrypoint-prd.sh
 
