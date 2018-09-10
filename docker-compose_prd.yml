@@ -23,6 +23,7 @@ services:
       - "3000:3000"
     volumes:
       - talententdecker_gems:/usr/local/bundle # persist gems as a volume
+      - ./talententdecker:/app
       - shared_assets:/app/public
       - ./docker-entrypoint-prd.sh:/usr/local/bin/docker-entrypoint-prd.sh
   nginx:
