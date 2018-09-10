@@ -14,18 +14,4 @@ ENV APPDIR=/app \
 
 WORKDIR $APPDIR
 
-COPY package.json $APPDIR/
-COPY yarn.lock $APPDIR/
-RUN yarn install
-
-COPY Gemfile* $APPDIR/
-RUN bundle install --deployment --without="development test"
-
-COPY . $APPDIR
-
-RUN bundle exec rake assets:precompile RAILS_ENV=production
-
-VOLUME $APPDIR/public
-VOLUME /usr/local/bundle
-
 ENTRYPOINT ["docker-entrypoint-prd.sh"]

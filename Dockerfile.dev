@@ -10,11 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - \
 
 # no need to copy files now as docker-compose will handle the mounting
 ENV APPDIR=/app \
-    # BUNDLE_PATH=/bundle \
-    # BUNDLE_BIN=/bundle/bin \
-    # GEM_HOME=/bundle \
     TERM=xterm
-# ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 WORKDIR $APPDIR
 

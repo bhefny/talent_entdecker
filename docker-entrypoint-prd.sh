@@ -2,7 +2,9 @@
 
 echo "🤖 🤖 🤖 🤖 🤖 DOCKER ENTRYPOINT 🤖 🤖 🤖 🤖 🤖"
 
-
+yarn install
+bundle install --deployment --without="development test"
+rake assets:precompile RAILS_ENV=production
 
 if ! [ -z "$RUN_BIN_SETUP" ]; then
   echo "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ rebuilding databases STARTED ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"

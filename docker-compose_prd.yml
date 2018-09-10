@@ -22,9 +22,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      - talententdecker_gems:/usr/local/bundle # persist gems as a volume
       - shared_assets:/app/public
       - ./docker-entrypoint-prd.sh:/usr/local/bin/docker-entrypoint-prd.sh
-
   nginx:
     image: nginx
     ports:
