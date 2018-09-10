@@ -3,7 +3,7 @@
 echo "🤖 🤖 🤖 🤖 🤖 DOCKER ENTRYPOINT 🤖 🤖 🤖 🤖 🤖"
 
 yarn install
-bundle install --deployment --without="development test"
+bundle install --without="development test"
 rake assets:precompile RAILS_ENV=production
 
 if ! [ -z "$RUN_BIN_SETUP" ]; then
