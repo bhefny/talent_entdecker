@@ -35,7 +35,7 @@ en:
     index:
       header:
         welcome_small: Do you need skilled Developers?
-        welcome_large: We find/test/sort them for you!
+        welcome_large: We find, test and sort them for you!
         welcome_button: Tell Me More
       services:
         title: Services

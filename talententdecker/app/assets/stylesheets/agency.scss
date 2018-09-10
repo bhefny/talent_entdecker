@@ -175,6 +175,8 @@ img::-moz-selection {
   }
   #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
+    font-size: 120%;
+    font-weight: 500;
   }
   #mainNav.navbar-shrink {
     padding-top: 0;
@@ -226,6 +228,9 @@ header.masthead .intro-text .intro-heading {
     padding-top: 300px;
     padding-bottom: 200px;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    a{
+      text-shadow: none;
+    }
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 40px;
@@ -525,7 +530,7 @@ header.masthead .intro-text .intro-heading {
   }
   .timeline > li {
     min-height: 100px;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
   }
   .timeline > li .timeline-panel {
     float: left;
