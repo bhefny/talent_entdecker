@@ -17,6 +17,7 @@ services:
       RAILS_DB_HOST: 'mysql'
       RAILS_DB_USER: 'root'
       RAILS_DB_PASSWORD: ''
+      SENDGRID_API_KEY: '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'
       RAILS_ENV: 'production'
       # RUN_BIN_SETUP: 1
     ports:

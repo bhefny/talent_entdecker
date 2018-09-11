@@ -17,6 +17,7 @@ services:
       RAILS_DB_HOST: 'mysql'
       RAILS_DB_USER: 'root'
       RAILS_DB_PASSWORD: ''
+      SENDGRID_API_KEY: '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'
 
 
     ports:
@@ -30,7 +31,7 @@ services:
     ports:
      - "80:80"
     environment:
-     - NGINX_HOST=talententdecker.com
+     - NGINX_HOST=talententdecker1.com
      - NGINX_PORT=80
      - NGINX_PROXY=http://talententdecker:3000
     volumes:
