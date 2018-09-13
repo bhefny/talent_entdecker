@@ -10,4 +10,17 @@ class StaticController < ApplicationController
     @year_footer = GlobalSetting.find_by(key: 'year_footer').try(:value)
   end
 
+  def email
+    if verify_recaptcha
+      send_email_contact(contact_params)
+    end
+    redirect_to action: :index, :only_path => true
+  end
+
+  private
+
+  def contact_params
+    @contact_params = @contact_params || params.permit(:name, :email, :phone, :message)
+  end
+
 end

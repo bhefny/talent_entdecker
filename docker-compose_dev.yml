@@ -18,6 +18,8 @@ services:
       RAILS_DB_USER: 'root'
       RAILS_DB_PASSWORD: ''
       SENDGRID_API_KEY: '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'
+      RECAPTCHA_SITE_KEY: '6LdFu28UAAAAAKONyRgFOV9BRJ-Y6ij2k2iVCVlX'
+      RECAPTCHA_SECRET_KEY: '6LdFu28UAAAAAJLa8I9QoISHpTD83TYnPSo9Ceor'
 
 
     ports:
@@ -25,6 +27,7 @@ services:
     volumes:
       - talententdecker_gems:/usr/local/bundle # persist gems as a volume
       - ./talententdecker:/app
+
       - ./docker-entrypoint-dev.sh:/usr/local/bin/docker-entrypoint-dev.sh
   nginx:
     image: nginx
